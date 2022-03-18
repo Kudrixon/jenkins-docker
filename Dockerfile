@@ -1,12 +1,7 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
-
+FROM node:12-alpine
+RUN apk add --no-cache python2 g++ make
 WORKDIR /app
-ADD . /app/
-
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
 EXPOSE 3000
-
-RUN dotnet build
-
-WORKDIR /app/Core.Application/
-
-ENTRYPOINT ["dotnet", "run", "Core.Application.dll"]
