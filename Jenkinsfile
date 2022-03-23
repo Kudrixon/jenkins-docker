@@ -17,11 +17,9 @@ pipeline {
         }
         stage('whatever2') {
             steps {
-                sh 'imageName=codi:${BUILD_NAME}'
-                sh 'containerName=Codiwebtest' 
                 sh 'docker system prune -af'
-                sh 'docker stop $containerName || true && docker rm -f $containerName || true'
-                sh 'docker run -d -p 8888:8888 --name $containerName $imageName'
+                sh 'docker stop codiwebtest || true && docker rm -f codiwebtest || true'
+                sh 'docker run -d -p 8888:8888 --name codiwebtest codi'
             }
         }
     }
