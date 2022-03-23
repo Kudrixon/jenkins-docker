@@ -4,9 +4,9 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'main', description: 'Choose your brach name - default is set to master')
     }
     stages {
-        stage('whatever') {
+        stage('git') {
             steps {
-                git branch: '${params.BRANCH}',
+                branch: '${params.BRANCH}',
                 credentialsId: '1',
                 url: 'https://github.com/Kudrixon/jenkins-docker.git'
             }
