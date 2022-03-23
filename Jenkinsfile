@@ -20,7 +20,7 @@ pipeline {
                 sh 'docker system prune -af'
                 sh 'docker build -t codi:latest .'
                 sh 'docker stop codiwebtest || true && docker rm -f codiwebtest || true'
-                sh 'docker run -d -p 8888:8888 --name codiwebtest codi'
+                sh 'docker run -d -p 3000:3000 --name codiwebtest codi'
             }
         }
     }
