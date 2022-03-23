@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'TestNode'
+        }
+    }
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'Choose your brach name - default is set to master')
     }
