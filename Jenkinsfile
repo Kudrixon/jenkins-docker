@@ -6,9 +6,9 @@ pipeline {
     stages {
         stage('git') {
             steps {
-                credentialsId: '1',
+                git credentialsId: '1',
                 url: 'https://github.com/Kudrixon/jenkins-docker.git',
-                branch: "${BRANCH}"
+                branch: "${params.BRANCH}"
             }
         }
         stage('whatever2') {
