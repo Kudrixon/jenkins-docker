@@ -18,6 +18,7 @@ pipeline {
         stage('whatever2') {
             steps {
                 sh 'docker system prune -af'
+                sh 'docker build -t codi'
                 sh 'docker stop codiwebtest || true && docker rm -f codiwebtest || true'
                 sh 'docker run -d -p 8888:8888 --name codiwebtest codi'
             }
